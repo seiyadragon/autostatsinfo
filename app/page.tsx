@@ -4,10 +4,6 @@ import FetchDataSteps from "@/components/tutorial/fetch-data-steps";
 import SignUpUserSteps from "@/components/tutorial/sign-up-user-steps";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 
-export const getStaicProps = async () => {
-  
-}
-
 export default async function Index() {
   return (
     <>
