@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import LinkSelector, { LinkSelectorLink } from "./link-selector";
+import LinkSelector from "./link-selector";
 import { Button } from "./ui/button";
+import { LinkSelectorLinkData } from "./link-selector-link";
 
 type PagedLinkSelectorProps = {
-    links: LinkSelectorLink[];
+    links: LinkSelectorLinkData[];
     startPage?: number;
     pageSize?: number;
 }
