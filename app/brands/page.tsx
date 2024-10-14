@@ -1,4 +1,4 @@
-import LinkSelector, { LinkSelectorLink } from "@/components/link-selector";
+import LinkSelector, { LinkSelectorLinkData } from "@/components/link-selector-link";
 import { createClient } from "@/utils/supabase/server";
 import Head from "next/head";
 import Image from 'next/image';
@@ -28,13 +28,13 @@ const BrandsPage = async (props: any) => {
     }
 
     const brands = data || [];
-    const brandLinks: LinkSelectorLink[] = [];
+    const brandLinks: LinkSelectorLinkData[] = [];
 
     brands.forEach((brand: any) => {
         brandLinks.push({
             label: brand.title.toUpperCase(),
             image_url: brand.image_url,
-            href: `/brands/${brand.title.toLowerCase().replace(" ", "-")}`,
+            href: `/brands/${brand.slug}`,
         });
     });
 

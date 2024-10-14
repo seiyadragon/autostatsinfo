@@ -1,6 +1,8 @@
 'use client';
 
+import Link from "next/link";
 import { Button } from "./ui/button";
+import { useRef } from "react";
 
 type ButtonLinkProps = {
     href: string;
@@ -8,10 +10,17 @@ type ButtonLinkProps = {
 }
 
 const ButtonLink = (props: ButtonLinkProps) => {
+    const linkRef = useRef<HTMLAnchorElement>(null);
+
+    console.log("ButtonLink", props);
+
     return (
         <Button variant="ghost" onClick={() => {
-            window.location.href = "brands"
+            if (linkRef.current) {
+                linkRef.current.click();
+            }
         }}>
+            <Link href={props.href} ref={linkRef}/>
             {props.children}
         </Button>
     )
