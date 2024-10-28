@@ -1,9 +1,7 @@
 import LinkSelector, { LinkSelectorLinkData } from "@/components/link-selector-link";
 import { createClient } from "@/utils/supabase/server";
 import Head from "next/head";
-import Image from 'next/image';
 import HeroLite from "@/components/hero-lite";
-import { useState } from "react";
 import PagedLinkSelector from "@/components/paged-link-selector";
 
 const defaultUrl = process.env.VERCEL_URL
@@ -13,15 +11,15 @@ const defaultUrl = process.env.VERCEL_URL
 const pageName = "Brands";
 
 export const metadata = {
-    metadataBase: new URL(defaultUrl),
-    title: `${pageName} - ASI: Know your ride`,
-    description: "Learn about the most popular car brands, their history, what they specialize in, and more.",
-    keywords: "cars, motorcycles, trucks, parts, brands, vehicles",
+  metadataBase: new URL(defaultUrl),
+  title: `${pageName} - ASI: Know your ride`,
+  description: "Learn about the most popular car brands, their history, what they specialize in, and more.",
+  keywords: "cars, motorcycles, trucks, parts, brands, vehicles",
 };
 
 const BrandsPage = async (props: any) => {
     const supabase = createClient();
-    const { data, error } = await supabase.from("CarBrands").select();
+    const { data, error } = await supabase.from("CarBrands").select().order('popularity_rank', { ascending: true });
 
     if (error) {
         console.error("Error fetching brands", error);
@@ -39,15 +37,10 @@ const BrandsPage = async (props: any) => {
     });
 
   return (
-    <div>
-        <Head>
-          <title>{metadata.title}</title>
-          <meta name="description" content={metadata.description} />
-          <meta name="keywords" content={metadata.keywords} />
-        </Head>
+    <>
         <HeroLite title="CHECK OUT THE TOP" subtitle="BRANDS"/>
         <PagedLinkSelector links={brandLinks} pageSize={8} />
-    </div>
+    </>
   );
 }
 
