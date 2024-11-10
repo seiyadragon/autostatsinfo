@@ -10,18 +10,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import DropdownLink from "./dropdown-link";
 
-type DropdownLink = {
-    label: string;
-    href: string;
-}
-
-type DropdownLinkProps = {
+type LinkDropdownProps = {
     name: string;
     links: DropdownLink[];
 }
 
-const LinksDropdown = (props: DropdownLinkProps) => {
+const LinksDropdown = (props: LinkDropdownProps) => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -31,9 +27,7 @@ const LinksDropdown = (props: DropdownLinkProps) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-content" align="start">
                 {props.links.map((link) => (
-                    <DropdownMenuItem key={link.label} className="flex gap-2">
-                        <Link href={link.href}>{link.label}</Link>
-                    </DropdownMenuItem>
+                    <DropdownLink key={link.label} label={link.label} href={link.href} />
                 ))}
             </DropdownMenuContent>
         </DropdownMenu>

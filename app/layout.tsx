@@ -6,19 +6,6 @@ import NavigationBar from "@/components/navigation-bar";
 import Footer from "@/components/footer";
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
-
-const pageName = "Home";
-
-export const metadata = {
-  metadataBase: new URL(defaultUrl),
-  title: `${pageName} - ASI: Know your ride`,
-  description: "The best way to know your ride",
-  keywords: "cars, motorcycles, trucks, parts, brands, vehicles",
-};
-
 export default function RootLayout({
   children,
 }: {
@@ -28,9 +15,6 @@ export default function RootLayout({
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <body className="bg-background text-foreground">
         <Head>
-          <title>{metadata.title}</title>
-          <meta name="description" content={metadata.description} />
-          <meta name="keywords" content={metadata.keywords} />
           <link rel="icon" href="/images/favicon.ico" />
           <link
             rel="stylesheet"

@@ -16,11 +16,17 @@ const NavigationBar = () => {
                         <Image src="/images/favicon.ico" alt="logo" width={40} height={40} priority />
                     </Link>
                     <LinksDropdown name="Parts" links={[
-                        { label: "All", href: "parts" },
-                        { label: "Engine", href: "parts/engine" },
-                        { label: "Transmission", href: "parts/transmission" },
-                        { label: "Suspension", href: "parts/suspension" },
-                        { label: "Brakes", href: "parts/brakes" }
+                        { label: "All", href: "/parts" },
+                        { label: "Engine", href: "/parts/engine" },
+                        { label: "Transmission", href: "/parts/transmission" },
+                        { label: "Suspension", href: "/parts/suspension" },
+                        { label: "Brakes", href: "/parts/brakes" },
+                        { label: "Exhaust", href: "/parts/exhaust" },
+                        { label: "Fuel System", href: "/parts/fuel-system" },
+                        { label: "Electrical", href: "/parts/electrical" },
+                        { label: "Cooling System", href: "/parts/cooling-system" },
+                        { label: "Steering", href: "/parts/steering" },
+                        { label: "Drive Train", href: "/parts/drivetrain" },
                     ]} />
                     <LinksDropdown name="Vehicles" links={[
                         { label: "All", href: "vehicles" },

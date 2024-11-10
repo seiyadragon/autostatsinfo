@@ -3,6 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 import Head from "next/head";
 import HeroLite from "@/components/hero-lite";
 import PagedLinkSelector from "@/components/paged-link-selector";
+import { fullDataLoading } from "@/utils/utils";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -18,14 +19,7 @@ export const metadata = {
 };
 
 const BrandsPage = async (props: any) => {
-    const supabase = createClient();
-    const { data, error } = await supabase.from("CarBrands").select().order('popularity_rank', { ascending: true });
-
-    if (error) {
-        console.error("Error fetching brands", error);
-    }
-
-    const brands = data || [];
+    const brands = await fullDataLoading("CarBrands");
     const brandLinks: LinkSelectorLinkData[] = [];
 
     brands.forEach((brand: any) => {
