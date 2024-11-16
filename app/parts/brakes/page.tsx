@@ -30,12 +30,12 @@ const BrakesPage = async (props: any) => {
         });
     });
 
-  return (
-    <>
-        <HeroLite title="CHECK OUT THE TOP" subtitle="BRAKES"/>
-        <PagedLinkSelector links={partLinks} pageSize={8} />
-    </>
-  );
+    return (
+      <>
+          <HeroLite title="CHECK OUT THE TOP" subtitle="BRAKES"/>
+          <PagedLinkSelector links={partLinks} pageSize={8} />
+      </>
+    );
 }
 
 export default BrakesPage

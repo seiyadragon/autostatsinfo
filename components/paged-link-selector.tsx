@@ -42,31 +42,33 @@ const PagedLinkSelector = (props: PagedLinkSelectorProps) => {
     return (
         <div>
             <LinkSelector links={paged_brand_links[page]} />
-            <div className="flex justify-between mt-8">
-                <Button variant="ghost" onClick={() => setPage(page - 1)} disabled={page === 0}>
-                    Previous
-                </Button>
-                <Button variant="ghost" onClick={() => setPage(0)} disabled={page === 0}>
-                    First
-                </Button>
-                {pageRange.map((pageIndex) => (
-                    <Button
-                        className="hidden md:block lg:block xl:block"
-                        key={pageIndex}
-                        variant="ghost"
-                        onClick={() => setPage(pageIndex)}
-                        disabled={page === pageIndex}
-                    >
-                        {pageIndex + 1}
+            { props.links.length > pageSize &&
+                <div className="flex justify-between mt-8">
+                    <Button variant="ghost" onClick={() => setPage(page - 1)} disabled={page === 0}>
+                        Previous
                     </Button>
-                ))}
-                <Button variant="ghost" onClick={() => setPage(paged_brand_links.length - 1)} disabled={page === paged_brand_links.length - 1}>
-                    Last
-                </Button>
-                <Button variant="ghost" onClick={() => setPage(page + 1)} disabled={page === paged_brand_links.length - 1}>
-                    Next
-                </Button>
-            </div>
+                    <Button variant="ghost" onClick={() => setPage(0)} disabled={page === 0}>
+                        First
+                    </Button>
+                    {pageRange.map((pageIndex) => (
+                        <Button
+                            className="hidden md:block lg:block xl:block"
+                            key={pageIndex}
+                            variant="ghost"
+                            onClick={() => setPage(pageIndex)}
+                            disabled={page === pageIndex}
+                        >
+                            {pageIndex + 1}
+                        </Button>
+                    ))}
+                    <Button variant="ghost" onClick={() => setPage(paged_brand_links.length - 1)} disabled={page === paged_brand_links.length - 1}>
+                        Last
+                    </Button>
+                    <Button variant="ghost" onClick={() => setPage(page + 1)} disabled={page === paged_brand_links.length - 1}>
+                        Next
+                    </Button>
+                </div>
+            }
         </div>
     )
 };
