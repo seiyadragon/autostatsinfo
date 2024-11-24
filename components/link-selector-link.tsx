@@ -19,7 +19,7 @@ const LinkSelectorLink = (props: LinkSelectorLinkData) => {
             onMouseLeave={() => setIsHovered(false)}
         >
             <h3 
-                className='mx-auto w-full text-red-600 text-center text-2xl md:text-2xl lg:text-2xl font-bold absolute top-1/2 z-50 m-0'
+                className='mx-auto w-full text-red-600 text-center text-2xl md:text-2xl lg:text-2xl font-bold absolute top-1/2 z-50 m-0 drop-shadow-[0_4px_4px_rgba(0,0,0,1)]'
             >
                 {props.label}
             </h3>
