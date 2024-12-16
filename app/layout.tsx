@@ -14,9 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
-      <Analytics />
-      <SpeedInsights />
       <body className="bg-background text-foreground">
+        <Analytics />
+        <SpeedInsights />
         <Head>
           <link rel="icon" href="/images/favicon.ico" />
           <link
