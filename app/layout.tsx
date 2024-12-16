@@ -4,7 +4,7 @@ import "./globals.css";
 import Head from "next/head";
 import NavigationBar from "@/components/navigation-bar";
 import Footer from "@/components/footer";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { Analytics } from "@vercel/analytics/react"
 
 export default function RootLayout({
   children,
@@ -13,6 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
+      <Analytics />
       <body className="bg-background text-foreground">
         <Head>
           <link rel="icon" href="/images/favicon.ico" />
@@ -40,7 +41,6 @@ export default function RootLayout({
           </main>
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId="G-1E2ZQZQZQZ" />
     </html>
   );
 }
