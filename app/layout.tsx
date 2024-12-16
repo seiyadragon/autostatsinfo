@@ -5,6 +5,7 @@ import Head from "next/head";
 import NavigationBar from "@/components/navigation-bar";
 import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function RootLayout({
   children,
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <Analytics />
+      <SpeedInsights />
       <body className="bg-background text-foreground">
         <Head>
           <link rel="icon" href="/images/favicon.ico" />
