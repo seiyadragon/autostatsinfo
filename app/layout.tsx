@@ -15,8 +15,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
       <body className="bg-background text-foreground">
-        <Analytics />
-        <SpeedInsights />
         <Head>
           <link rel="icon" href="/images/favicon.ico" />
           <link
@@ -42,6 +40,8 @@ export default function RootLayout({
             </div>
           </main>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
