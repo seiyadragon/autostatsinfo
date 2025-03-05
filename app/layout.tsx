@@ -1,11 +1,14 @@
-import { GeistSans } from "geist/font/sans";
+import { Bungee } from "next/font/google"
 import { ThemeProvider } from "next-themes";
-import "./globals.css";
 import Head from "next/head";
 import NavigationBar from "@/components/navigation-bar";
 import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+
+import "./globals.css";
+
+const Font = Bungee({ subsets: ['latin'], weight: ['400'] });
 
 export default function RootLayout({
   children,
@@ -13,14 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={GeistSans.className} suppressHydrationWarning>
+    <html lang="en" className={Font.className} suppressHydrationWarning>
       <body className="bg-background text-foreground">
         <Head>
           <link rel="icon" href="/images/favicon.ico" />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-          />
         </Head>
         <ThemeProvider
           attribute="class"

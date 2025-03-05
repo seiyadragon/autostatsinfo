@@ -74,7 +74,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@designbycode/tailwindcss-text-stroke")],
 } satisfies Config;
 
 export default config;
