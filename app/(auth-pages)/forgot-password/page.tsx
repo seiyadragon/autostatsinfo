@@ -33,7 +33,7 @@ export default function ForgotPassword({
           <SubmitButton formAction={forgotPasswordAction}>
             Reset Password
           </SubmitButton>
-          
+          <FormMessage message={searchParams} />
         </div>
       </form>
       <SmtpMessage />
